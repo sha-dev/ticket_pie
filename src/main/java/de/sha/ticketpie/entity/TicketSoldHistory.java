@@ -12,15 +12,23 @@ import javax.persistence.Version;
 @Entity
 public class TicketSoldHistory {
 
+	TicketSoldHistory(){
+		super();
+	}
+
+	TicketSoldHistory(String seatNo){
+		this.seatNo = seatNo;
+		this.insertDateTime = new Date();
+	}
+
+
 	@Id
 	@GeneratedValue
 	public Integer id;
-	public Integer seatNo;
+	public String seatNo;
 	@Version
 	public Integer version;
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date insertDateTime;
-	@Temporal(TemporalType.TIMESTAMP)
-	public Date updateDateTime;
 
 }
