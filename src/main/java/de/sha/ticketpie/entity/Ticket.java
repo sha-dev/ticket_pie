@@ -5,6 +5,7 @@ package de.sha.ticketpie.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Ticket {
 
 	public Ticket(String seatNo, boolean soldOutFlag){
 		this.seatNo = seatNo;
-		this.soldOutflag = soldOutFlag;
+		this.soldOutFlag = soldOutFlag;
 		this.insertDateTime = new Date();
 		this.updateDateTime = new Date();
 	}
@@ -35,13 +36,17 @@ public class Ticket {
 	@Id
 	@GeneratedValue
 	public Integer id;
+	@Column(name = "seatno")
 	public String seatNo;
-	public boolean soldOutflag;
+	@Column(name = "soldoutflag")
+	public boolean soldOutFlag;
 	@Version
 	public Integer version;
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "insertdatetime")
 	public Date insertDateTime;
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "updatedatetime")
 	public Date updateDateTime;
 
 }
