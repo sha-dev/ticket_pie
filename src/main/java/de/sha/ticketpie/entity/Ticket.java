@@ -20,13 +20,11 @@ import javax.persistence.Version;
 @Entity
 public class Ticket {
 
-	private static final long serialVersionUID = 1L;
-
-	public Ticket(){
+	public Ticket() {
 		super();
 	}
 
-	public Ticket(String seatNo, boolean soldOutFlag){
+	public Ticket(String seatNo, boolean soldOutFlag) {
 		this.seatNo = seatNo;
 		this.soldOutFlag = soldOutFlag;
 		this.insertDateTime = new Date();

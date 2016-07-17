@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import de.sha.ticketpie.entity.TicketSoldHistory;
 
 @Repository
-public interface TicketSoldHistoryRepository extends JpaRepository<TicketSoldHistory,Integer>{
+public interface TicketSoldHistoryRepository extends JpaRepository<TicketSoldHistory, Integer> {
 
 }

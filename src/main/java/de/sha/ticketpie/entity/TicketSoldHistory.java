@@ -12,15 +12,14 @@ import javax.persistence.Version;
 @Entity
 public class TicketSoldHistory {
 
-	TicketSoldHistory(){
+	TicketSoldHistory() {
 		super();
 	}
 
-	TicketSoldHistory(String seatNo){
+	TicketSoldHistory(String seatNo) {
 		this.seatNo = seatNo;
 		this.insertDateTime = new Date();
 	}
-
 
 	@Id
 	@GeneratedValue
