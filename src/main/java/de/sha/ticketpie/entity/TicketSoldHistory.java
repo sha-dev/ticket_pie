@@ -16,7 +16,7 @@ public class TicketSoldHistory {
 		super();
 	}
 
-	TicketSoldHistory(String seatNo) {
+	public TicketSoldHistory(String seatNo) {
 		this.seatNo = seatNo;
 		this.insertDateTime = new Date();
 	}
