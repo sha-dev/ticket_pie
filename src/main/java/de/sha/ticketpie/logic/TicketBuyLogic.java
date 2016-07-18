@@ -10,6 +10,7 @@ import de.sha.ticketpie.dto.BuyResultDto;
 import de.sha.ticketpie.entity.Ticket;
 import de.sha.ticketpie.entity.TicketSoldHistory;
 import de.sha.ticketpie.repository.TicketRepository;
+import de.sha.ticketpie.repository.TicketSoldHistoryRepository;
 
 @Service
 public class TicketBuyLogic {
@@ -17,14 +18,11 @@ public class TicketBuyLogic {
 	@Autowired
 	TicketRepository ticketRepository;
 
-	/*
-	 * @Autowired TicketSoldHistory soldHistoryRepository;
-	 */
+	@Autowired TicketSoldHistoryRepository soldHistoryRepository;
 
 	public BuyResultDto buyTicket() {
 
 		// 1.未購入のチケット全件取得 idの若い順で良席とする
-		// TODO:購入履歴の追加
 		List<Ticket> ticketStock = ticketRepository.findBySoldOutFlagOrderByIdAsc(false);
 		// 1で結果が取得できた場合
 		if (!ticketStock.isEmpty()) {
@@ -33,6 +31,7 @@ public class TicketBuyLogic {
 			try {
 				// 2.未購入 -> 購入
 				ticketRepository.save(ticket);
+				soldHistoryRepository.save(new TicketSoldHistory(ticket.seatNo));
 			} catch (OptimisticLockingFailureException ex) {
 				// ロック発生時に再購入処理
 				buyTicket();
