@@ -14,6 +14,6 @@ public class TicketEventHandler {
 
 	@HandleBeforeSave
 	public void beforeSave(Ticket ticket){
-		ticket.updateDateTime = new Date();
+		ticket.setUpdateDateTime(new Date());
 	}
 }
