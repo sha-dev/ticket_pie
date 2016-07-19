@@ -1,13 +1,16 @@
 package de.sha.ticketpie.dto;
 
-public class BuyResultDto {
+import lombok.Data;
 
-	public Boolean judgement;
-	public String seatNo;
+@Data
+public class BuyResultDto {
 
 	public BuyResultDto(Boolean judgement, String seatNo) {
 		this.judgement = judgement;
 		this.seatNo = seatNo;
 	}
+
+	private Boolean judgement;
+	private String seatNo;
 
 }
