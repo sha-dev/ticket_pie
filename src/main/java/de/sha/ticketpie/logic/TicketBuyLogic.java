@@ -1,5 +1,6 @@
 package de.sha.ticketpie.logic;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,18 @@ public class TicketBuyLogic {
 		if (!ticketStock.isEmpty()) {
 			Ticket ticket = ticketStock.get(0);
 			ticket.setSoldOutFlag(true);
+			ticket.setUpdateDateTime(new Date());
 			try {
 				// 2.未購入 -> 購入
 				ticketRepository.save(ticket);
-				soldHistoryRepository.save(new TicketSoldHistory(ticket.getSeatNo()));
+
 			} catch (OptimisticLockingFailureException ex) {
 				// ロック発生時に再購入処理
-				buyTicket();
+				return buyTicket();
 			}
 			// 2で購入できた場合
+			soldHistoryRepository.save(new TicketSoldHistory(ticket.getSeatNo()));
 			return new BuyResultDto(true, ticket.getSeatNo());
-
 
 		} else {
 			// 1で結果が取得できなかった場合
