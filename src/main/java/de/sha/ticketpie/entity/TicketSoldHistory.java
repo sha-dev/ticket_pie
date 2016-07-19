@@ -9,7 +9,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class TicketSoldHistory {
 
 	TicketSoldHistory() {
@@ -23,11 +26,11 @@ public class TicketSoldHistory {
 
 	@Id
 	@GeneratedValue
-	public Integer id;
-	public String seatNo;
+	private Integer id;
+	private String seatNo;
 	@Version
-	public Integer version;
+	private Integer version;
 	@Temporal(TemporalType.TIMESTAMP)
-	public Date insertDateTime;
+	private Date insertDateTime;
 
 }

@@ -12,12 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
-
+import lombok.Data;
 /**
  * @author sato_hiroki
- *
  */
+
 @Entity
+@Data
 public class Ticket {
 
 	public Ticket() {
@@ -33,18 +34,18 @@ public class Ticket {
 
 	@Id
 	@GeneratedValue
-	public Integer id;
+	private Integer id;
 	@Column(name = "seatno")
-	public String seatNo;
+	private String seatNo;
 	@Column(name = "soldoutflag")
-	public boolean soldOutFlag;
+	private boolean soldOutFlag;
 	@Version
-	public Integer version;
+	private Integer version;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "insertdatetime")
-	public Date insertDateTime;
+	private Date insertDateTime;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updatedatetime")
-	public Date updateDateTime;
+	private Date updateDateTime;
 
 }
