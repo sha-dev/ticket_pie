@@ -8,13 +8,13 @@ import de.sha.ticketpie.dto.BuyResultDto;
 import de.sha.ticketpie.logic.TicketBuyLogic;
 
 @RestController
-public class Buy {
+public class TicketController {
 
 	@Autowired
 	TicketBuyLogic logic;
 
 	@RequestMapping("buy")
-	public BuyResultDto buyTicket() {
+	public BuyResultDto Buy() {
 
 		return logic.buyTicket();
 	}
