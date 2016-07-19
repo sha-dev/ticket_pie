@@ -31,7 +31,6 @@ public class TicketRepositoryTest {
 		repo.save(t);
 
 		List<Ticket> list = repo.findAll();
-		System.out.println(list.get(0).updateDateTime.getTime());
 		assertThat(list.size(), equalTo(1));
 
 
