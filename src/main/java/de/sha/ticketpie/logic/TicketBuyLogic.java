@@ -27,19 +27,19 @@ public class TicketBuyLogic {
 		// 1で結果が取得できた場合
 		if (!ticketStock.isEmpty()) {
 			Ticket ticket = ticketStock.get(0);
-			ticket.soldOutFlag = true;
+			ticket.setSoldOutFlag(true);
 			try {
 				// 2.未購入 -> 購入
 				ticketRepository.save(ticket);
-				soldHistoryRepository.save(new TicketSoldHistory(ticket.seatNo));
+				soldHistoryRepository.save(new TicketSoldHistory(ticket.getSeatNo()));
 			} catch (OptimisticLockingFailureException ex) {
 				// ロック発生時に再購入処理
 				buyTicket();
 			}
 			// 2で購入できた場合
-			return new BuyResultDto(true, ticket.seatNo);
+			return new BuyResultDto(true, ticket.getSeatNo());
 
-			
+
 		} else {
 			// 1で結果が取得できなかった場合
 			return new BuyResultDto(false, null);

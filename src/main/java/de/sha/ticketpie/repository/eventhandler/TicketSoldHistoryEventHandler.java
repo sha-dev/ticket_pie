@@ -15,6 +15,6 @@ public class TicketSoldHistoryEventHandler {
 
 	@HandleBeforeCreate
 	public void beforeSave(TicketSoldHistory history) {
-		history.insertDateTime = new Date();
+		history.setInsertDateTime(new Date());
 	}
 }
