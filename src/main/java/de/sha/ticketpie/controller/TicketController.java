@@ -15,7 +15,6 @@ public class TicketController {
 
 	@RequestMapping("buy")
 	public BuyResultDto Buy() {
-
 		return logic.buyTicket();
 	}
 
