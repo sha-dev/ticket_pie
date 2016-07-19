@@ -29,7 +29,7 @@ public class TicketSoldHistory {
 	private Integer id;
 	private String seatNo;
 	@Version
-	private Integer version;
+	private int version;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date insertDateTime;
 

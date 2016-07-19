@@ -40,7 +40,7 @@ public class Ticket {
 	@Column(name = "soldoutflag")
 	private boolean soldOutFlag;
 	@Version
-	private Integer version;
+	private int version;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "insertdatetime")
 	private Date insertDateTime;
