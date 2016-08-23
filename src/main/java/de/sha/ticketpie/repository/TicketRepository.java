@@ -10,6 +10,6 @@ import de.sha.ticketpie.entity.Ticket;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 
-	List<Ticket> findBySoldOutFlagOrderByIdAsc(Boolean bool);
+	List<Ticket> findBySoldOutFlagOrderByIdAsc(boolean bool);
 
 }

@@ -18,6 +18,7 @@ import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import de.sha.ticketpie.TicketPieApplication;
@@ -61,19 +62,19 @@ public class BuyTest {
 		when().get("/buy")
 			.then()
 			.statusCode(HttpStatus.OK.value())
-			.body("judgement", equalTo(true))
+			.body("success", equalTo(true))
 			.body("seatNo", equalTo("A1"));
 
 		when().get("/buy")
 		.then()
 		.statusCode(HttpStatus.OK.value())
-		.body("judgement", equalTo(true))
+		.body("success", equalTo(true))
 		.body("seatNo", equalTo("A2"));
 
 		when().get("/buy")
 		.then()
 		.statusCode(HttpStatus.OK.value())
-		.body("judgement", equalTo(false))
+		.body("success", equalTo(false))
 		.body("seatNo", equalTo(null));
 
 		List<TicketSoldHistory> history = historyRepo.findAll();

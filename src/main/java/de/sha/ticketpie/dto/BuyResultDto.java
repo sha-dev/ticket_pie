@@ -1,16 +1,29 @@
 package de.sha.ticketpie.dto;
 
-import lombok.Data;
-
-@Data
 public class BuyResultDto {
 
-	public BuyResultDto(Boolean judgement, String seatNo) {
-		this.judgement = judgement;
-		this.seatNo = seatNo;
+	private boolean success;
+	private String seatNo;
+	
+	public BuyResultDto(boolean success, String seatNo) {
+		this.setSuccess(success);
+		this.setSeatNo(seatNo);
 	}
 
-	private Boolean judgement;
-	private String seatNo;
+	public boolean getSuccess() {
+		return success;
+	}
+
+	public void setSuccess(boolean success) {
+		this.success = success;
+	}
+
+	public String getSeatNo() {
+		return seatNo;
+	}
+
+	public void setSeatNo(String seatNo) {
+		this.seatNo = seatNo;
+	}
 
 }
